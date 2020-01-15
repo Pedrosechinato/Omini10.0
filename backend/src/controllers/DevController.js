@@ -5,7 +5,7 @@ const parseStrinAsArray = require('../utils/parseStringAsArray')
 
 module.exports ={ 
     async index(request, response){
-        const devs = await Dev
+        const devs = await Dev.find();
 
         return response.json(devs);
     },
@@ -13,7 +13,7 @@ module.exports ={
     async store (request, response) {
         console.log(request.body);
         const {github_username, techs, latitude, longitude} = request.body;
-        
+            
         let dev = await Dev.findOne({github_username});
         
 
